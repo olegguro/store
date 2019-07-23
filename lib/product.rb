@@ -5,4 +5,8 @@ class Product
     @price = params[:price]
     @amount = params[:amount]
   end
+
+  def to_s
+    "#{@price} (осталось #{@amount})"
+  end
 end
