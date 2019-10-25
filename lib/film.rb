@@ -31,5 +31,7 @@ class Film < Product
     @title = params[:title] if params[:title]
     @year = params[:year] if params[:year]
     @director = params[:director] if params[:director]
+
+    self
   end
 end
