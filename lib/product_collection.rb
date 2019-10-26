@@ -5,7 +5,8 @@ class ProductCollection
   # массив с название папки (где лежат файлы этого типа) и ссылкой на класс.
   PRODUCT_TYPES = {
       film: {dir: 'films', class: Film},
-      book: {dir: 'books', class: Book}
+      book: {dir: 'books', class: Book},
+      disk: {dir: 'disks', class: Disk}
   }
 
   # Конструктор коллекции принимает на вход массив продуктов, но если ничего не
@@ -82,12 +83,18 @@ class ProductCollection
     self
   end
 
+  def by_user_choice(user_choice)
+    @products[user_choice - 1]
+  end
+
   # Простой метод, чтобы достать все продукты коллекции
-   def to_a
+  def to_a
     @products
   end
 
   def to_s
-    @products.join("/n")
+    @products.
+        map.with_index(1) { |product, index| "#{index}. #{product}" }.
+        join("\n") #объединяем все в одну строку через перенос строки (\n)
   end
 end
