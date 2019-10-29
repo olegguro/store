@@ -29,21 +29,22 @@ loop do
 
   chosen_product = collection.by_user_choice(user_choice)
 
+  # если пользователь выбрат товар, которого нет (вернется nil) - то переходит на следующий круг цикла
   next unless chosen_product
 
   if chosen_product.amount > 0
     basket << chosen_product
     chosen_product.amount -= 1
 
+
     puts "Вы выбрали: #{chosen_product}"
     puts
     puts "Всего товаров на сумму: #{basket.sum(&:price)}"
   end
 end
-
 puts
 
 puts "Вы купили:"
-puts basket.join("\n")
+puts basket.to_a
 puts
 puts "C Вас - #{basket.sum(&:price)} руб. Спасибо за покупки!"

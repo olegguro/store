@@ -93,8 +93,7 @@ class ProductCollection
   end
 
   def to_s
-    @products.
-        map.with_index(1) { |product, index| "#{index}. #{product}" }.
-        join("\n") #объединяем все в одну строку через перенос строки (\n)
+    @products.delete_if { |product| product.amount <= 0 }
+    @products.map.with_index(1) { |product, index| "#{index}. #{product}" }.join("\n") #объединяем все в одну строку через перенос строки (\n)
   end
 end
