@@ -45,6 +45,6 @@ end
 puts
 
 puts "Вы купили:"
-puts basket.to_a
-puts
+puts basket.group_by {|x| x}.map {|k,v| [k,v.count]}
+puts 
 puts "C Вас - #{basket.sum(&:price)} руб. Спасибо за покупки!"

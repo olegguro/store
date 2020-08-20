@@ -13,7 +13,7 @@ class ProductCollection
   # передали на вход, то он записывает в переменную экземпляра @products пустой
   # массив.
   def initialize(products = [])
-    @products = products
+    @products = products 
   end
 
   # Метод класса (статический метод) from_dir считывает из указанной в
