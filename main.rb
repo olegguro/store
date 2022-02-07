@@ -36,14 +36,12 @@ loop do
     basket << chosen_product
     chosen_product.amount -= 1
 
-
     puts "Вы выбрали: #{chosen_product}"
     puts
     puts "Всего товаров на сумму: #{basket.sum(&:price)}"
   end
 end
 puts
-
 puts "Вы купили:"
 puts basket.group_by {|x| x}.map {|k,v| [k,v.count]}
 puts 
